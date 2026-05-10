@@ -9,6 +9,8 @@ This project is a web application that helps users manage their daily expenses.
 - Expense statistics
 
 ## Technologies
-- Java Servlet & JSP
+- Spring Boot, Spring MVC
+- Spring Data JPA 
 - MySQL
 - Apache Tomcat
+- Eclipse IDE
