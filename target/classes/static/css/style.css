@@ -1,0 +1,165 @@
+body{
+    background:#f4f6f9;
+    overflow-x:hidden;
+}
+
+.sidebar{
+    width:250px;
+    height:100vh;
+    position:fixed;
+    background:#212529;
+    left: 0;
+    top: 0;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    padding:15px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:#0d6efd;
+}
+
+.content{
+    margin-left:250px;
+    padding:10px 20px;
+}
+
+.card-custom{
+    border:none;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.navbar{
+    border-radius:15px;
+    margin-bottom:20px;
+}
+.active-menu{
+    background:#0d6efd;
+    border-left:4px solid white;
+}
+.sidebar a{
+    display:block;
+    color:white;
+    padding:15px;
+    text-decoration:none;
+    transition:all 0.3s ease;
+}
+
+/* ACTION BUTTONS */
+
+.action-buttons{
+    position:absolute;
+    top:50%;
+    right:10px;
+    transform:translateY(-50%);
+    
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.3s ease;
+}
+
+tr:hover .action-buttons{
+    opacity:1;
+    visibility:visible;
+}
+
+/* NOTE CELL */
+
+td.position-relative{
+    padding-right:100px;
+}
+
+/* BUTTON EFFECT */
+
+.action-buttons .btn{
+    transform:scale(0.9);
+    transition:0.2s;
+}
+
+.action-buttons .btn:hover{
+    transform:scale(1);
+}
+
+.action-buttons{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    opacity:0;
+    transition:0.3s;
+}
+
+.table-hover tbody tr:hover .action-buttons{
+    opacity:1;
+}
+
+/* =========================
+   BUDGET ACTION BUTTONS
+========================= */
+
+.budget-header {
+    position: relative;
+}
+
+.budget-actions {
+    display: flex;
+    gap: 8px;
+
+    opacity: 0;
+    transform: translateY(-5px);
+
+    transition: all 0.25s ease;
+}
+
+/* Hover card mới hiện */
+
+.card-custom:hover .budget-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button */
+
+.action-btn {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: white;
+
+    transition: 0.2s;
+}
+
+/* Edit */
+
+.edit-btn {
+    background: #fbbc05;
+}
+
+.edit-btn:hover {
+    background: #e0a800;
+    transform: scale(1.08);
+}
+
+/* Delete */
+
+.delete-btn {
+    background: #ea4335;
+}
+
+.delete-btn:hover {
+    background: #d93025;
+    transform: scale(1.08);
+}

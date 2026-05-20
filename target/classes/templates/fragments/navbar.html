@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+	<div th:fragment="navbar">
+
+		<nav
+			class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
+
+			<div class="container-fluid">
+
+				<!-- LEFT -->
+
+				<h4 class="mb-0 fw-bold" th:text="${pageTitle}">Dashboard</h4>
+				<!-- RIGHT -->
+
+				<div class="d-flex align-items-center gap-3">
+
+					<!-- SEARCH -->
+
+					<div class="position-relative">
+
+						<input id="menuSearch" class="form-control" type="search"
+							placeholder="Tìm menu...">
+
+						<div id="searchResult"
+							class="list-group position-absolute w-100 shadow"
+							style="z-index: 999; display: none;"></div>
+
+					</div>
+
+					<!-- NOTIFICATION -->
+
+					<div class="dropdown">
+
+						<a href="#" class="position-relative text-dark"
+							data-bs-toggle="dropdown"> <i class="bi bi-bell fs-4"></i> <span
+							th:if="${unreadCount > 0}"
+							class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+								[[${unreadCount}]] </span>
+
+						</a>
+
+						<ul class="dropdown-menu dropdown-menu-end shadow border-0 p-2"
+							style="width: 300px;">
+
+							<li class="fw-bold px-2 mb-2">Thông báo</li>
+
+							<li th:each="noti : ${notifications}"><a href="#"
+								class="dropdown-item small"> [[${noti.message}]] <br> <small
+									class="text-muted"> [[${#temporals.format(
+										noti.createdAt, 'dd/MM HH:mm' )}]] </small>
+
+							</a></li>
+
+							<li th:if="${#lists.isEmpty(notifications)}"><span
+								class="dropdown-item text-muted"> Không có thông báo </span></li>
+
+						</ul>
+
+					</div>
+
+
+					<!-- USER -->
+
+					<div class="dropdown user-dropdown">
+
+						<a
+							class="d-flex align-items-center text-decoration-none dropdown-toggle"
+							href="#" data-bs-toggle="dropdown"> <img
+							th:src="${currentUser != null && currentUser.avatar != null
+        ? currentUser.avatar
+        : '/images/default-avatar.png'}"
+							class="rounded-circle me-2" width="40" height="40"
+							style="object-fit: cover;"> <span
+							class="fw-semibold text-dark"> [[${currentUser.fullName}]]
+
+						</span>
+
+						</a>
+
+						<ul class="dropdown-menu dropdown-menu-end shadow border-0">
+
+							<li><a class="dropdown-item" href="/account"> <i
+									class="bi bi-person-circle me-2"></i> Tài khoản
+
+							</a></li>
+
+							<li><hr class="dropdown-divider"></li>
+
+							<li>
+
+								<form th:action="@{/logout}" method="post">
+
+									<button type="submit" class="dropdown-item text-danger">
+
+										<i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
+
+									</button>
+
+								</form>
+
+							</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+
+		</nav>
+
+	</div>
+
+	<script th:src="@{/js/navbar-search.js}" defer></script>
+
+</body>
+</html>
