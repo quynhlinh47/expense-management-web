@@ -12,5 +12,4 @@ This project is a web application that helps users manage their daily expenses.
 - Spring Boot, Spring MVC
 - Spring Data JPA 
 - MySQL
-- Apache Tomcat
 - Eclipse IDE
